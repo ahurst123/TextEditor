@@ -31,3 +31,20 @@ if ('serviceWorker' in navigator) {
 } else {
   console.error('Service workers are not supported in this browser.');
 }
+
+import { getDb, putDb } from './idb';
+import './styles.css';
+
+window.addEventListener('load', async () => {
+  const editor = document.querySelector('#editor');
+
+  // Retrieve and display content from IndexedDB on load
+  const data = await getDb();
+  if (data) {
+    editor.value = data;
+  }
+
+  editor.addEventListener('input', (event) => {
+    putDb(event.target.value);
+  });
+});
