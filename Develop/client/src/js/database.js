@@ -12,10 +12,23 @@ const initdb = async () =>
     },
   });
 
-// TODO: Add logic to a method that accepts some content and adds it to the database
-export const putDb = async (content) => console.error('putDb not implemented');
-
-// TODO: Add logic for a method that gets all the content from the database
-export const getDb = async () => console.error('getDb not implemented');
+  const mongoose = require('mongoose');
+  require('dotenv').config();
+  
+  const connectDB = async () => {
+    try {
+      const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/textEditorDB', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+  
+      console.log(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (err) {
+      console.error(err);
+      process.exit(1);
+    }
+  };
+  
+  module.exports = connectDB;
 
 initdb();

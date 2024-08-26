@@ -1,2 +1,2 @@
 # TextEditor
-In browser solution for editing text
+This application is a simple yet powerful text editor that operates both online and offline. It utilizes modern web technologies, including IndexedDB for data storage and service workers for offline access, ensuring that your content is saved and accessible even when you're not connected to the internet. The application is built with a client-server architecture, using Webpack to bundle JavaScript files and implement next-generation JavaScript features. Additionally, it's designed as a Progressive Web App (PWA), allowing users to install it directly on their desktop for easy access.
