@@ -29,3 +29,8 @@
     "idb": "^6.1.2"
   }
 }
+"scripts": {
+  "start:dev": "webpack serve --open --hot",
+  "build": "webpack --mode production",
+  "start": "npm run build && node server/server.js"
+}
